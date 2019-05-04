@@ -1,6 +1,7 @@
 package _01_IntroToArrayLists;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Copyright The League of Amazing Programmers 2013-2017 Level 3 Two ArrayList
@@ -35,6 +36,13 @@ public class _04_RemovingStuffFromArrayLists {
 		System.out.println(stuffIFoundInTheYard.size());
 
 		/* TODO 1: Clean out the dirt but keep the delicious worms. */
+		for (Iterator iterator = stuffIFoundInTheYard.iterator(); iterator.hasNext();) {
+			
+			
+			if(iterator.next() instanceof Dirt) {
+			iterator.remove();
+			}
+		} 
 		
 		
 		
@@ -74,8 +82,14 @@ public class _04_RemovingStuffFromArrayLists {
 		truth.add('r');
 		truth.add('#');
 		/* TODO 2: Remove the hash symbols and print out the truth. */
+		
+		for (int i = 0; i < truth.size(); i++) {
+			if(truth.get(i)=='#') {
+				truth.remove(i);
+			}
+			
+		}
+		System.out.println(truth);
 
-		
-		
 	}
 }
