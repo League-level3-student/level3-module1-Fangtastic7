@@ -1,15 +1,34 @@
 package _01_IntroToArrayLists;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 //Copyright The League of Amazing Programmers, 2015
 
-public class _06_IPodShuffle{
+public class _06_IPodShuffle implements ActionListener{
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton button = new JButton("Suprise Me!");
+	ArrayList<Song> songs = new ArrayList<Song>();
+	
+	Random randomindex = new Random();
+	int repeat =5;
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
-				
+				frame.setVisible(true);
+				frame.add(panel);
+				panel.add(button);
+				frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+				songs.add(null);
+				button.addActionListener(this);
+				frame.pack();
 				
 		/**
 		 * 2. Congratulations on completing the sound check! * Now we want to make an
@@ -23,5 +42,20 @@ public class _06_IPodShuffle{
 	
 	public static void main(String[] args) {
 		new _06_IPodShuffle();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	int number =	randomindex.nextInt(3);
+	
+		
+		while(number == repeat) {
+			number = randomindex.nextInt(3);
+		}
+		songs.get(number);
+		
+		
 	}
 }
