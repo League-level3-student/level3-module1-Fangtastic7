@@ -17,16 +17,22 @@ public class _06_IPodShuffle implements ActionListener{
 	JPanel panel = new JPanel();
 	JButton button = new JButton("Suprise Me!");
 	ArrayList<Song> songs = new ArrayList<Song>();
-	
+	boolean isplaying = false;
 	Random randomindex = new Random();
-	int repeat =5;
+	int repeat =0;
+	Song rock = new Song("americanidiot.mp3");
+	Song electric = new Song("nitrofun.mp3");
+	Song USSR = new Song("USSR.mp3");
+	
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
 				frame.setVisible(true);
 				frame.add(panel);
 				panel.add(button);
 				frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-				songs.add(null);
+				songs.add(electric);
+				songs.add(rock);
+				songs.add(USSR);
 				button.addActionListener(this);
 				frame.pack();
 				
@@ -47,15 +53,21 @@ public class _06_IPodShuffle implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
-	int number =	randomindex.nextInt(3);
-	
-		
+		if(isplaying==false) {
+		int number = randomindex.nextInt(3);
 		while(number == repeat) {
-			number = randomindex.nextInt(3);
+		number = randomindex.nextInt(3);
 		}
-		songs.get(number);
-		
+		songs.get(number).play();
+		repeat = number;
+		System.out.println("Plays");
+		isplaying=true;
+		}
+		else {
+			isplaying =false; 
+			songs.get(repeat).stop();
+			System.out.println("stop");
+		}
 		
 	}
 }
