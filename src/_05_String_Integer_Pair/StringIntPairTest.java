@@ -9,6 +9,7 @@ class StringIntPairTest {
 	@Test
 	void testPutAndGet() {
 		StringIntegerPair sip = new StringIntegerPair();
+		
 		sip.put("ONE", 1);
 		sip.put("TWO", 2);
 		sip.put("THREE", 3);
@@ -21,6 +22,7 @@ class StringIntPairTest {
 	}
 	
 	@Test
+	
 	void testContains() {
 		StringIntegerPair sip = new StringIntegerPair();
 		sip.put("ONE", 1);
@@ -40,6 +42,7 @@ class StringIntPairTest {
 		assertTrue(sip.containsValue(4));
 		assertFalse(sip.containsValue(5));
 	}
+	
 	
 	@Test
 	void testGetKeysAndValues() {

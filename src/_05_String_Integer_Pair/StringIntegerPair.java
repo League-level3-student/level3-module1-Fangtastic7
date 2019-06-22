@@ -4,13 +4,20 @@ public class StringIntegerPair {
 	//1. create a private array of Strings called keys. Don't initialize it.
 	private String[] keys;
 	//2. create a private array of integers called values.
-	private int values[];
+	private int[] values;
 	StringIntegerPair(){
 		//3. initialize both member arrays to a length of 0
 		keys = new String[0];
 		values = new int[0];
 	}
-	
+	public void printout() {
+		for(String eachkey : keys) {
+			System.out.println(eachkey);
+		}
+		for(int eachvalue : values) {
+			System.out.println(eachvalue);
+		}
+	}
 	// 4. Complete the steps in the put method
 	public void put(String key, int value) {
 		//A. iterate through the keys. If you find a key that matches
@@ -18,10 +25,12 @@ public class StringIntegerPair {
 		//   passed in value and return from the method.
 		
 		for (int i = 0; i< keys.length; i++) {
-			
-			if(keys[i] != null && 
-			(keys[i].equals(key))) {
+			//keys[i] != null && 
+			//System.out.println(keys[i]);
+	
+			if(keys[i].equals(key)) {
 				values[i] = value;
+				System.out.println("index: " + i + " Value: " + value + " keys[i]: "+keys[i]);
 				return;
 			}
 		}
@@ -45,10 +54,7 @@ public class StringIntegerPair {
 		values = integersarray1;
 		
 	//	System.out.println(keys.length);
-		for(String eachkey : keys) {
-			System.out.println(eachkey);
-			
-		}
+		printout();
 		
 	//	System.out.println(values.length);
 		
@@ -60,7 +66,8 @@ public class StringIntegerPair {
 	public int get(String key) {
 		for(int i = 0; i < keys.length; i++) {
 			if(keys[i].equals(key)) {
-				return i;
+				//System.out.println("Stuff is happening");
+				return values[i];
 			}
 		}
 		return Integer.MIN_VALUE;
